@@ -24,6 +24,30 @@ export async function generateMetadata({ params }: { params: { lang: string } })
   }
 }
 
-export default function Page({ params }: { params: { lang: string } }) {
-  return <FeaturesPage lang={params.lang} />
+export default function Page() {
+  return (
+    <div className="container py-12">
+      <h1 className="text-4xl font-bold mb-8">Features</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="p-6 border rounded-lg">
+          <h2 className="text-2xl font-semibold mb-4">Performance</h2>
+          <p className="text-muted-foreground">
+            Lightning-fast caching with optimized WordPress-specific strategies.
+          </p>
+        </div>
+        <div className="p-6 border rounded-lg">
+          <h2 className="text-2xl font-semibold mb-4">Memory Efficiency</h2>
+          <p className="text-muted-foreground">
+            Smart memory management for optimal resource utilization.
+          </p>
+        </div>
+        <div className="p-6 border rounded-lg">
+          <h2 className="text-2xl font-semibold mb-4">Easy Integration</h2>
+          <p className="text-muted-foreground">
+            Simple setup and configuration for WordPress sites.
+          </p>
+        </div>
+      </div>
+    </div>
+  )
 } 

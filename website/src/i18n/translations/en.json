@@ -10,6 +10,7 @@
     "cta": {
       "tryPro": "Try ValKey Pro",
       "startFreeTrial": "Start Free Trial",
+      "getStarted": "Get Started",
       "learnMore": "Learn More"
     },
     "footer": {
@@ -22,9 +23,8 @@
   },
   "home": {
     "hero": {
-      "title": "Supercharge your caching with ValKey",
-      "subtitle": "The open, high-performance Redis alternative",
-      "description": "ValKey is a modern key-value caching solution designed specifically for WordPress, offering superior performance and community-driven development."
+      "title": "Modern Redis Alternative for WordPress",
+      "description": "High-performance caching solution designed specifically for WordPress. Open-source and backed by the Linux Foundation."
     },
     "features": {
       "title": "Why ValKey beats Redis",
@@ -39,6 +39,80 @@
       "costEffective": {
         "title": "Cost-Effective",
         "description": "20-33% lower pricing than Redis engines on cloud providers"
+      }
+    }
+  },
+  "navigation": {
+    "products": "Products",
+    "features": "Features",
+    "performance": "Performance",
+    "memoryEfficiency": "Memory Efficiency",
+    "solutions": "Solutions",
+    "wordpressPlugin": "WordPress Plugin",
+    "enterprise": "Enterprise",
+    "cloudHosting": "Cloud Hosting",
+    "resources": "Resources",
+    "documentation": "Documentation",
+    "blog": "Blog",
+    "support": "Support",
+    "pricing": "Pricing",
+    "login": "Login",
+    "getStarted": "Get Started",
+    "toggleMenu": "Toggle Menu",
+    "search": "Search...",
+    "dashboard": "Dashboard",
+    "analytics": "Analytics",
+    "cache": "Cache",
+    "users": "Users",
+    "settings": "Settings"
+  },
+  "features": {
+    "performance": {
+      "title": "Lightning-Fast Performance",
+      "description": "Experience unparalleled speed and efficiency with our optimized caching solution.",
+      "features": {
+        "speed": {
+          "title": "Blazing Fast Speed",
+          "description": "Reduce page load times by up to 10x with our advanced caching technology."
+        },
+        "scalability": {
+          "title": "Infinite Scalability",
+          "description": "Scale your cache seamlessly as your traffic grows without performance degradation."
+        },
+        "realtime": {
+          "title": "Real-time Updates",
+          "description": "Keep your content fresh with instant cache invalidation and updates."
+        }
+      },
+      "cta": {
+        "title": "Ready to Speed Up Your Site?",
+        "description": "Get started with ValKey Cache today and experience the difference.",
+        "getStarted": "Get Started",
+        "viewDocs": "View Documentation"
+      }
+    },
+    "memoryEfficiency": {
+      "title": "Advanced Memory Efficiency",
+      "description": "Optimize your server resources with intelligent memory management.",
+      "features": {
+        "allocation": {
+          "title": "Smart Memory Allocation",
+          "description": "Dynamically allocate memory based on your workload patterns."
+        },
+        "optimization": {
+          "title": "Memory Usage Optimization",
+          "description": "Automatically optimize memory usage to prevent waste and fragmentation."
+        },
+        "monitoring": {
+          "title": "Memory Usage Analytics",
+          "description": "Track and analyze memory usage patterns with detailed insights."
+        }
+      },
+      "cta": {
+        "title": "Ready to Optimize Your Cache?",
+        "description": "Start saving server resources today.",
+        "getStarted": "Get Started",
+        "viewDocs": "View Documentation"
       }
     }
   }

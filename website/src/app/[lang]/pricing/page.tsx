@@ -45,102 +45,51 @@ function PricingTier({ name, price, description, features, cta, href, popular }:
   )
 }
 
-export default function PricingPage() {
-  const tiers = [
-    {
-      name: 'Free',
-      price: 'Free',
-      description: 'Perfect for small WordPress sites and personal blogs.',
-      features: [
-        'Up to 100,000 cached objects',
-        'Basic cache analytics',
-        'Community support',
-        'Standard security features',
-        'Manual cache invalidation'
-      ],
-      cta: 'Get Started',
-      href: '/download'
-    },
-    {
-      name: 'Pro',
-      price: '$29',
-      description: 'Ideal for growing businesses and high-traffic sites.',
-      features: [
-        'Unlimited cached objects',
-        'Advanced analytics dashboard',
-        'Priority email support',
-        'Enhanced security features',
-        'AI-powered cache invalidation',
-        'Custom cache rules'
-      ],
-      cta: 'Start Free Trial',
-      href: '/signup',
-      popular: true
-    },
-    {
-      name: 'Enterprise',
-      price: 'Custom',
-      description: 'For large organizations with complex caching needs.',
-      features: [
-        'Custom deployment options',
-        'Dedicated support team',
-        'SLA guarantees',
-        'Advanced security controls',
-        'Custom integrations',
-        'Training and onboarding'
-      ],
-      cta: 'Contact Sales',
-      href: '/contact'
-    }
-  ]
-
+export default function Page() {
   return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
-      <section className="py-20 px-4 md:px-6 lg:px-8 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">Simple, Transparent Pricing</h1>
-        <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-          Choose the plan that best fits your needs. All plans include core ValKey Cache features.
-        </p>
-      </section>
-
-      {/* Pricing Tiers */}
-      <section 
-        className="py-12 px-4 md:px-6 lg:px-8"
-        role="region"
-        aria-label="Pricing Plans"
-      >
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {tiers.map((tier) => (
-            <PricingTier key={tier.name} {...tier} />
-          ))}
+    <div className="container py-12">
+      <h1 className="text-4xl font-bold text-center mb-8">Pricing Plans</h1>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="p-6 border rounded-lg">
+          <h2 className="text-2xl font-semibold mb-4">Free</h2>
+          <p className="text-3xl font-bold mb-4">$0</p>
+          <ul className="space-y-2 mb-6">
+            <li>Basic caching</li>
+            <li>Community support</li>
+            <li>1 website</li>
+          </ul>
+          <button className="w-full py-2 px-4 bg-primary text-primary-foreground rounded-md">
+            Get Started
+          </button>
         </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section 
-        className="py-20 px-4 md:px-6 lg:px-8 bg-muted/50"
-        role="region"
-        aria-label="Frequently Asked Questions"
-      >
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-          <div className="space-y-8">
-            <div role="article">
-              <h3 className="text-xl font-semibold mb-2">Can I switch plans later?</h3>
-              <p className="text-muted-foreground">Yes, you can upgrade or downgrade your plan at any time. Changes will be reflected in your next billing cycle.</p>
-            </div>
-            <div role="article">
-              <h3 className="text-xl font-semibold mb-2">Do you offer refunds?</h3>
-              <p className="text-muted-foreground">Yes, we offer a 30-day money-back guarantee on all paid plans.</p>
-            </div>
-            <div role="article">
-              <h3 className="text-xl font-semibold mb-2">What payment methods do you accept?</h3>
-              <p className="text-muted-foreground">We accept all major credit cards, PayPal, and bank transfers for Enterprise plans.</p>
-            </div>
-          </div>
+        <div className="p-6 border rounded-lg bg-primary/5 border-primary">
+          <h2 className="text-2xl font-semibold mb-4">Pro</h2>
+          <p className="text-3xl font-bold mb-4">$29/mo</p>
+          <ul className="space-y-2 mb-6">
+            <li>Advanced caching</li>
+            <li>Priority support</li>
+            <li>5 websites</li>
+            <li>Performance analytics</li>
+          </ul>
+          <button className="w-full py-2 px-4 bg-primary text-primary-foreground rounded-md">
+            Subscribe
+          </button>
         </div>
-      </section>
-    </main>
+        <div className="p-6 border rounded-lg">
+          <h2 className="text-2xl font-semibold mb-4">Enterprise</h2>
+          <p className="text-3xl font-bold mb-4">Custom</p>
+          <ul className="space-y-2 mb-6">
+            <li>Custom caching rules</li>
+            <li>24/7 support</li>
+            <li>Unlimited websites</li>
+            <li>Advanced analytics</li>
+            <li>Custom integrations</li>
+          </ul>
+          <button className="w-full py-2 px-4 bg-primary text-primary-foreground rounded-md">
+            Contact Sales
+          </button>
+        </div>
+      </div>
+    </div>
   )
 } 

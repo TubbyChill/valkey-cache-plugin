@@ -1,6 +1,8 @@
+import * as React from 'react'
 import { Metadata } from 'next'
-import { HomePage } from '@/components/pages/home'
 import { i18n } from '@/i18n/config'
+import type { SupportedLanguage } from '@/i18n/use-translations'
+import { HomeContent } from '@/components/pages/home-content'
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }))
@@ -24,6 +26,12 @@ export async function generateMetadata({ params }: { params: { lang: string } })
   }
 }
 
-export default function Page({ params }: { params: { lang: string } }) {
-  return <HomePage lang={params.lang} />
+interface HomePageProps {
+  params: {
+    lang: SupportedLanguage
+  }
+}
+
+export default function HomePage({ params }: HomePageProps) {
+  return <HomeContent lang={params.lang} />
 } 

@@ -2,53 +2,60 @@
 
 import * as React from 'react'
 import { useRouter, usePathname } from 'next/navigation'
+import { Button } from '@/components/ui/button'
+import { Globe } from 'lucide-react'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { Button } from '@/components/ui/button'
-import { Globe } from 'lucide-react'
+import { i18n } from '@/i18n/config'
 
-const languages = [
-  { code: 'en', name: 'English' },
-  { code: 'fr', name: 'Français' },
-  { code: 'es', name: 'Español' },
-  { code: 'de', name: 'Deutsch' },
-  { code: 'it', name: 'Italiano' },
-  { code: 'pt', name: 'Português' },
-  { code: 'nl', name: 'Nederlands' },
-  { code: 'pl', name: 'Polski' },
-  { code: 'ru', name: 'Русский' },
-  { code: 'ja', name: '日本語' },
-]
+const LANGUAGE_NAMES: { [key: string]: string } = {
+  en: 'English',
+  fr: 'Français',
+  es: 'Español',
+  de: 'Deutsch',
+  it: 'Italiano',
+  pt: 'Português',
+  nl: 'Nederlands',
+  pl: 'Polski',
+  ru: 'Русский',
+  ja: '日本語',
+}
 
-export function LanguageSwitcher() {
+interface LanguageSwitcherProps {
+  currentLang: string
+}
+
+export function LanguageSwitcher({ currentLang }: LanguageSwitcherProps) {
   const router = useRouter()
   const pathname = usePathname()
-  const currentLang = pathname.split('/')[1]
 
-  const switchLanguage = (langCode: string) => {
-    const newPath = pathname.replace(`/${currentLang}`, `/${langCode}`)
+  const handleLanguageChange = (newLang: string) => {
+    // Get the path without the language prefix
+    const pathWithoutLang = pathname.replace(`/${currentLang}`, '')
+    const newPath = `/${newLang}${pathWithoutLang}`
     router.push(newPath)
   }
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon">
-          <Globe className="h-5 w-5" />
+        <Button variant="ghost" size="icon" className="w-9 px-0">
+          <Globe className="h-4 w-4" />
           <span className="sr-only">Switch language</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        {languages.map((lang) => (
+        {i18n.locales.map((locale) => (
           <DropdownMenuItem
-            key={lang.code}
-            onClick={() => switchLanguage(lang.code)}
+            key={locale}
+            onClick={() => handleLanguageChange(locale)}
+            className={locale === currentLang ? 'bg-accent' : ''}
           >
-            {lang.name}
+            {LANGUAGE_NAMES[locale] || locale}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

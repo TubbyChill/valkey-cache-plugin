@@ -1,0 +1,88 @@
+{
+  "navigation": {
+    "products": "Productos",
+    "features": "Características",
+    "performance": "Rendimiento",
+    "memoryEfficiency": "Eficiencia de Memoria",
+    "solutions": "Soluciones",
+    "wordpressPlugin": "Plugin WordPress",
+    "enterprise": "Empresa",
+    "cloudHosting": "Alojamiento en la Nube",
+    "resources": "Recursos",
+    "documentation": "Documentación",
+    "blog": "Blog",
+    "support": "Soporte",
+    "pricing": "Precios",
+    "login": "Iniciar Sesión",
+    "getStarted": "Comenzar",
+    "toggleMenu": "Menú",
+    "search": "Buscar...",
+    "dashboard": "Panel de Control",
+    "analytics": "Analíticas",
+    "cache": "Caché",
+    "users": "Usuarios",
+    "settings": "Configuración"
+  },
+  "home": {
+    "hero": {
+      "title": "Alternativa Moderna a Redis para WordPress",
+      "description": "Solución de caché de alto rendimiento diseñada específicamente para WordPress. Código abierto y respaldado por la Linux Foundation."
+    }
+  },
+  "features": {
+    "performance": {
+      "title": "Rendimiento Ultra Rápido",
+      "description": "Experimente una velocidad y eficiencia sin igual con nuestra solución de caché optimizada.",
+      "features": {
+        "speed": {
+          "title": "Velocidad Extraordinaria",
+          "description": "Reduzca los tiempos de carga de páginas hasta 10 veces con nuestra tecnología de caché avanzada."
+        },
+        "scalability": {
+          "title": "Escalabilidad Infinita",
+          "description": "Escale su caché sin problemas a medida que crece su tráfico sin degradación del rendimiento."
+        },
+        "realtime": {
+          "title": "Actualizaciones en Tiempo Real",
+          "description": "Mantenga su contenido actualizado con invalidación y actualizaciones instantáneas de caché."
+        }
+      },
+      "cta": {
+        "title": "¿Listo para Acelerar su Sitio?",
+        "description": "Comience con ValKey Cache hoy y experimente la diferencia.",
+        "getStarted": "Comenzar",
+        "viewDocs": "Ver Documentación"
+      }
+    },
+    "memoryEfficiency": {
+      "title": "Gestión Inteligente de Memoria",
+      "description": "El plugin ValKey Cache utiliza técnicas avanzadas de optimización de memoria para maximizar los recursos de su servidor.",
+      "features": {
+        "allocation": {
+          "title": "Asignación Inteligente de Memoria",
+          "description": "Nuestro algoritmo de caché asigna dinámicamente la memoria según los patrones de tráfico y tipos de contenido de su sitio."
+        },
+        "optimization": {
+          "title": "Optimización de Recursos",
+          "description": "Minimice la carga del servidor con un uso eficiente de la memoria y limpieza automática de entradas de caché obsoletas."
+        },
+        "monitoring": {
+          "title": "Monitoreo de Rendimiento",
+          "description": "Obtenga información en tiempo real sobre el uso de memoria y el rendimiento del caché para ayudar a optimizar su configuración."
+        }
+      },
+      "cta": {
+        "title": "¿Listo para Optimizar tu Caché WordPress?",
+        "description": "Experimente los beneficios de la gestión inteligente de memoria con el plugin ValKey Cache.",
+        "getStarted": "Comenzar",
+        "viewDocs": "Ver Documentación"
+      }
+    }
+  },
+  "common": {
+    "cta": {
+      "getStarted": "Comenzar",
+      "learnMore": "Saber Más"
+    }
+  }
+} 

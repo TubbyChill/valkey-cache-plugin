@@ -1,4 +1,8 @@
+'use client'
+
 import * as React from 'react'
+import { signIn } from 'next-auth/react'
+import { useSearchParams } from 'next/navigation'
 import {
   Dialog,
   DialogContent,
@@ -6,84 +10,54 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '../ui/dialog'
-import { Button } from '../ui/button'
-import { Input } from '../ui/input'
-import { Label } from '../ui/label'
-import { useRouter } from 'next/navigation'
+} from '@/components/ui/dialog'
+import { Button } from '@/components/ui/button'
+import { Github, Mail } from 'lucide-react'
 
 interface LoginModalProps {
-  lang: string
-  trigger?: React.ReactNode
-  isOpen?: boolean
-  onOpenChange?: (open: boolean) => void
+  children: React.ReactNode
 }
 
-export function LoginModal({ lang, trigger, isOpen, onOpenChange }: LoginModalProps) {
-  const [email, setEmail] = React.useState('')
-  const [password, setPassword] = React.useState('')
-  const [isLoading, setIsLoading] = React.useState(false)
-  const router = useRouter()
+export function LoginModal({ children }: LoginModalProps) {
+  const [open, setOpen] = React.useState(false)
+  const searchParams = useSearchParams()
+  const callbackUrl = searchParams.get('callbackUrl') || '/app/dashboard'
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
-    
-    try {
-      // TODO: Implement actual login logic here
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      router.push(`/${lang}/dashboard`)
-    } catch (error) {
-      console.error('Login failed:', error)
-    } finally {
-      setIsLoading(false)
-    }
+  const handleProviderSignIn = async (provider: string) => {
+    await signIn(provider, { callbackUrl })
+    setOpen(false)
   }
 
   return (
-    <Dialog open={isOpen} onOpenChange={onOpenChange}>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        {trigger || <Button variant="ghost">Log in</Button>}
+        {children}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent>
         <DialogHeader>
           <DialogTitle>Log in to your account</DialogTitle>
           <DialogDescription>
-            Enter your email and password to access your dashboard.
+            Choose your preferred login method to access your dashboard.
           </DialogDescription>
         </DialogHeader>
-        <form onSubmit={handleSubmit} className="space-y-4 pt-4">
-          <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="you@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="password">Password</Label>
-            <Input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-          <div className="flex justify-between items-center">
-            <Button
-              type="submit"
-              disabled={isLoading}
-              className="w-full"
-            >
-              {isLoading ? 'Logging in...' : 'Log in'}
-            </Button>
-          </div>
-        </form>
+        <div className="flex flex-col gap-4 py-4">
+          <Button
+            variant="outline"
+            onClick={() => handleProviderSignIn('github')}
+            className="flex items-center gap-2"
+          >
+            <Github className="h-5 w-5" />
+            Continue with GitHub
+          </Button>
+          <Button
+            variant="outline"
+            onClick={() => handleProviderSignIn('google')}
+            className="flex items-center gap-2"
+          >
+            <Mail className="h-5 w-5" />
+            Continue with Google
+          </Button>
+        </div>
       </DialogContent>
     </Dialog>
   )
