@@ -7,7 +7,7 @@ import { FALLBACK_LOCALE } from '@/i18n/config'
 const translations = {
   en: () => import('@/i18n/translations/en.json').then((module) => module.default),
   fr: () => import('@/i18n/translations/fr.json').then((module) => module.default),
-  // Add other languages as they become available
+  es: () => import('@/i18n/translations/es.json').then((module) => module.default)
 }
 
 type TranslationKey = string

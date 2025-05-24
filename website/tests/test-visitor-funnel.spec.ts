@@ -1,6 +1,6 @@
 import { test, expect, type Page } from '@playwright/test'
 
-const languages = ['en', 'fr', 'es', 'de', 'it', 'pt', 'nl', 'pl', 'ru', 'ja']
+const languages = ['en', 'fr', 'es']
 const menuLinks = [
   { href: '/features', label: 'Features' },
   { href: '/pricing', label: 'Pricing' },

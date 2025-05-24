@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server'
 import { i18n } from '@/i18n/config'
 
 // List of supported languages
-const locales = ['en', 'fr', 'es', 'de', 'it', 'pt', 'nl', 'pl', 'ru', 'ja']
+const locales = ['en', 'fr', 'es']
 const defaultLocale = 'en'
 
 // Get the preferred locale from headers

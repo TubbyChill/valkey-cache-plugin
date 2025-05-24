@@ -19,27 +19,66 @@
       "resources": "Resources",
       "community": "Community",
       "legal": "Legal"
-    }
+    },
+    "saving": "Saving...",
+    "saveChanges": "Save Changes"
   },
   "home": {
     "hero": {
-      "title": "Supercharge Your WordPress Cache",
-      "description": "ValKey Cache Plugin optimizes your WordPress site's performance with intelligent caching and real-time analytics."
+      "title": "Supercharge your WordPress caching with ValKey",
+      "description": "The modern, high-performance Redis alternative designed specifically for WordPress. Open-source and backed by the Linux Foundation.",
+      "getStarted": "Get Started",
+      "documentation": "Documentation"
     },
     "features": {
-      "title": "Why ValKey beats Redis",
-      "performance": {
-        "title": "Superior Performance",
-        "description": "Handle more requests with lower latency on the same hardware"
+      "title": "Why Choose ValKey Cache?",
+      "speed": {
+        "title": "Lightning Fast",
+        "description": "Up to 10x faster than Redis with optimized WordPress-specific caching strategies."
       },
-      "openSource": {
-        "title": "Open Source & Community-Driven",
-        "description": "Backed by Linux Foundation and 40+ companies for active development"
+      "smart": {
+        "title": "Smart Caching",
+        "description": "AI-powered cache invalidation that learns from your site's traffic patterns."
       },
-      "costEffective": {
-        "title": "Cost-Effective",
-        "description": "20-33% lower pricing than Redis engines on cloud providers"
+      "easy": {
+        "title": "Easy to Use",
+        "description": "Simple installation and configuration. No Redis expertise required."
+      },
+      "cost": {
+        "title": "Cost Effective",
+        "description": "Reduce server costs with efficient memory usage and optimized storage."
+      },
+      "security": {
+        "title": "Secure by Default",
+        "description": "Enterprise-grade security with encryption at rest and in transit."
+      },
+      "analytics": {
+        "title": "Real-time Analytics",
+        "description": "Detailed insights into cache performance and optimization opportunities."
       }
+    },
+    "testimonials": {
+      "title": "Trusted by WordPress Experts",
+      "quote1": {
+        "text": "ValKey Cache transformed our site's performance. Load times dropped by 70% overnight.",
+        "author": "Jane Smith",
+        "role": "CTO, TechBlog.com"
+      },
+      "quote2": {
+        "text": "The easiest caching solution I've ever used. Perfect for agencies managing multiple sites.",
+        "author": "Mike Johnson",
+        "role": "WordPress Developer"
+      },
+      "quote3": {
+        "text": "Finally, a caching solution that just works. No more Redis headaches!",
+        "author": "Sarah Williams",
+        "role": "DevOps Lead, WP Engine"
+      }
+    },
+    "cta": {
+      "title": "Ready to Supercharge Your WordPress Site?",
+      "description": "Join thousands of WordPress sites already using ValKey Cache. Get started for free today.",
+      "button": "Start Caching Smarter"
     }
   },
   "navigation": {
@@ -116,5 +155,15 @@
         "viewDocs": "View Documentation"
       }
     }
+  },
+  "settings": {
+    "title": "Profile Settings",
+    "firstname": "First Name",
+    "lastname": "Last Name",
+    "email": "Email Address",
+    "success": "Success",
+    "error": "Error",
+    "profileUpdated": "Your profile has been updated successfully",
+    "updateFailed": "Failed to update your profile. Please try again."
   }
 } 

@@ -15,14 +15,7 @@ import { i18n } from '@/i18n/config'
 const LANGUAGE_NAMES: { [key: string]: string } = {
   en: 'English',
   fr: 'Français',
-  es: 'Español',
-  de: 'Deutsch',
-  it: 'Italiano',
-  pt: 'Português',
-  nl: 'Nederlands',
-  pl: 'Polski',
-  ru: 'Русский',
-  ja: '日本語',
+  es: 'Español'
 }
 
 interface LanguageSwitcherProps {

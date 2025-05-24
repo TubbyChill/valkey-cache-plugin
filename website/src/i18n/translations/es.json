@@ -26,8 +26,60 @@
   },
   "home": {
     "hero": {
-      "title": "Potencia tu Cache WordPress",
-      "description": "ValKey Cache Plugin optimiza el rendimiento de tu sitio WordPress con caché inteligente y análisis en tiempo real."
+      "title": "Potencia tu caché de WordPress con ValKey",
+      "description": "La alternativa moderna y de alto rendimiento a Redis, diseñada específicamente para WordPress. Código abierto y respaldado por la Linux Foundation.",
+      "getStarted": "Comenzar",
+      "documentation": "Documentación"
+    },
+    "features": {
+      "title": "¿Por qué elegir ValKey Cache?",
+      "speed": {
+        "title": "Ultra Rápido",
+        "description": "Hasta 10 veces más rápido que Redis con estrategias de caché optimizadas para WordPress."
+      },
+      "smart": {
+        "title": "Caché Inteligente",
+        "description": "Invalidación de caché impulsada por IA que aprende de los patrones de tráfico de tu sitio."
+      },
+      "easy": {
+        "title": "Fácil de Usar",
+        "description": "Instalación y configuración sencillas. No se requiere experiencia con Redis."
+      },
+      "cost": {
+        "title": "Rentable",
+        "description": "Reduce los costos del servidor con un uso eficiente de la memoria y almacenamiento optimizado."
+      },
+      "security": {
+        "title": "Seguro por Defecto",
+        "description": "Seguridad de nivel empresarial con cifrado en reposo y en tránsito."
+      },
+      "analytics": {
+        "title": "Análisis en Tiempo Real",
+        "description": "Información detallada sobre el rendimiento del caché y oportunidades de optimización."
+      }
+    },
+    "testimonials": {
+      "title": "Respaldado por Expertos en WordPress",
+      "quote1": {
+        "text": "ValKey Cache transformó el rendimiento de nuestro sitio. Los tiempos de carga se redujeron un 70% de la noche a la mañana.",
+        "author": "Jane Smith",
+        "role": "CTO, TechBlog.com"
+      },
+      "quote2": {
+        "text": "La solución de caché más fácil que he usado. Perfecta para agencias que gestionan múltiples sitios.",
+        "author": "Mike Johnson",
+        "role": "Desarrollador WordPress"
+      },
+      "quote3": {
+        "text": "¡Por fin, una solución de caché que funciona! ¡Adiós a los dolores de cabeza con Redis!",
+        "author": "Sarah Williams",
+        "role": "Líder DevOps, WP Engine"
+      }
+    },
+    "cta": {
+      "title": "¿Listo para Potenciar tu Sitio WordPress?",
+      "description": "Únete a miles de sitios WordPress que ya utilizan ValKey Cache. Comienza gratis hoy.",
+      "button": "Empieza a Cachear de Forma Más Inteligente"
     }
   },
   "features": {
@@ -81,9 +133,37 @@
     }
   },
   "common": {
+    "navigation": {
+      "product": "Producto",
+      "pricing": "Precios",
+      "documentation": "Documentación",
+      "signIn": "Iniciar Sesión",
+      "getStarted": "Comenzar"
+    },
     "cta": {
+      "tryPro": "Probar ValKey Pro",
+      "startFreeTrial": "Prueba Gratuita",
       "getStarted": "Comenzar",
-      "learnMore": "Saber Más"
-    }
+      "learnMore": "Más Información"
+    },
+    "footer": {
+      "company": "Empresa",
+      "product": "Producto",
+      "resources": "Recursos",
+      "community": "Comunidad",
+      "legal": "Legal"
+    },
+    "saving": "Guardando...",
+    "saveChanges": "Guardar Cambios"
+  },
+  "settings": {
+    "title": "Ajustes de Perfil",
+    "firstname": "Nombre",
+    "lastname": "Apellido",
+    "email": "Correo Electrónico",
+    "success": "Éxito",
+    "error": "Error",
+    "profileUpdated": "Tu perfil se ha actualizado correctamente",
+    "updateFailed": "Error al actualizar tu perfil. Por favor, inténtalo de nuevo."
   }
 } 

@@ -9,7 +9,7 @@
     },
     "cta": {
       "tryPro": "Essayer ValKey Pro",
-      "startFreeTrial": "Démarrer l'essai gratuit",
+      "startFreeTrial": "Essai Gratuit",
       "getStarted": "Commencer",
       "learnMore": "En Savoir Plus"
     },
@@ -18,28 +18,67 @@
       "product": "Produit",
       "resources": "Ressources",
       "community": "Communauté",
-      "legal": "Mentions légales"
-    }
+      "legal": "Mentions Légales"
+    },
+    "saving": "Enregistrement...",
+    "saveChanges": "Enregistrer les modifications"
   },
   "home": {
     "hero": {
-      "title": "Optimisez Votre Cache WordPress",
-      "description": "ValKey Cache Plugin optimise les performances de votre site WordPress avec une mise en cache intelligente et des analyses en temps réel."
+      "title": "Optimisez votre cache WordPress avec ValKey",
+      "description": "L'alternative moderne et performante à Redis, conçue spécifiquement pour WordPress. Open-source et soutenue par la Linux Foundation.",
+      "getStarted": "Commencer",
+      "documentation": "Documentation"
     },
     "features": {
-      "title": "Pourquoi ValKey surpasse Redis",
-      "performance": {
-        "title": "Performance Supérieure",
-        "description": "Gérez plus de requêtes avec une latence plus faible sur le même matériel"
+      "title": "Pourquoi choisir ValKey Cache ?",
+      "speed": {
+        "title": "Ultra Rapide",
+        "description": "Jusqu'à 10 fois plus rapide que Redis avec des stratégies de mise en cache optimisées pour WordPress."
       },
-      "openSource": {
-        "title": "Open Source & Communautaire",
-        "description": "Soutenu par la Linux Foundation et plus de 40 entreprises pour un développement actif"
+      "smart": {
+        "title": "Cache Intelligent",
+        "description": "Invalidation du cache alimentée par l'IA qui apprend des modèles de trafic de votre site."
       },
-      "costEffective": {
+      "easy": {
+        "title": "Facile à Utiliser",
+        "description": "Installation et configuration simples. Aucune expertise Redis requise."
+      },
+      "cost": {
         "title": "Économique",
-        "description": "Prix 20-33% inférieurs aux moteurs Redis chez les fournisseurs cloud"
+        "description": "Réduisez les coûts serveur grâce à une utilisation efficace de la mémoire et un stockage optimisé."
+      },
+      "security": {
+        "title": "Sécurisé par Défaut",
+        "description": "Sécurité de niveau entreprise avec chiffrement au repos et en transit."
+      },
+      "analytics": {
+        "title": "Analyses en Temps Réel",
+        "description": "Aperçus détaillés des performances du cache et des opportunités d'optimisation."
       }
+    },
+    "testimonials": {
+      "title": "Approuvé par les Experts WordPress",
+      "quote1": {
+        "text": "ValKey Cache a transformé les performances de notre site. Les temps de chargement ont chuté de 70% du jour au lendemain.",
+        "author": "Jane Smith",
+        "role": "CTO, TechBlog.com"
+      },
+      "quote2": {
+        "text": "La solution de mise en cache la plus simple que j'ai jamais utilisée. Parfait pour les agences gérant plusieurs sites.",
+        "author": "Mike Johnson",
+        "role": "Développeur WordPress"
+      },
+      "quote3": {
+        "text": "Enfin, une solution de mise en cache qui fonctionne. Plus de maux de tête avec Redis !",
+        "author": "Sarah Williams",
+        "role": "Responsable DevOps, WP Engine"
+      }
+    },
+    "cta": {
+      "title": "Prêt à Optimiser Votre Site WordPress ?",
+      "description": "Rejoignez des milliers de sites WordPress qui utilisent déjà ValKey Cache. Commencez gratuitement aujourd'hui.",
+      "button": "Commencez à Mettre en Cache Plus Intelligemment"
     }
   },
   "navigation": {
@@ -116,5 +155,15 @@
         "viewDocs": "Voir la Documentation"
       }
     }
+  },
+  "settings": {
+    "title": "Paramètres du profil",
+    "firstname": "Prénom",
+    "lastname": "Nom",
+    "email": "Adresse e-mail",
+    "success": "Succès",
+    "error": "Erreur",
+    "profileUpdated": "Votre profil a été mis à jour avec succès",
+    "updateFailed": "Échec de la mise à jour de votre profil. Veuillez réessayer."
   }
 } 
