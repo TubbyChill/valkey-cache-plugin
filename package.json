@@ -1,0 +1,28 @@
+{
+  "name": "valkey-cache-plugin",
+  "version": "1.0.0",
+  "description": "ValKey Cache Plugin website and backend",
+  "private": true,
+  "workspaces": [
+    "app",
+    "website"
+  ],
+  "scripts": {
+    "build": "npm run build:app && npm run build:web",
+    "build:app": "cd app && npm run build",
+    "build:web": "cd website && npm run build",
+    "dev": "concurrently \"npm run dev:app\" \"npm run dev:web\"",
+    "dev:app": "cd app && npm run dev",
+    "dev:web": "cd website && npm run dev",
+    "test": "npm run test:app && npm run test:web",
+    "test:app": "cd app && npm run test",
+    "test:web": "cd website && npm run test",
+    "lint": "npm run lint:app && npm run lint:web",
+    "lint:app": "cd app && npm run lint",
+    "lint:web": "cd website && npm run lint",
+    "migrate": "cd app && npm run migrate"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+} 

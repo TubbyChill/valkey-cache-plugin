@@ -1,0 +1,45 @@
+{
+  "common": {
+    "navigation": {
+      "product": "Product",
+      "pricing": "Pricing",
+      "documentation": "Documentation",
+      "signIn": "Sign In",
+      "getStarted": "Get Started"
+    },
+    "cta": {
+      "tryPro": "Try ValKey Pro",
+      "startFreeTrial": "Start Free Trial",
+      "learnMore": "Learn More"
+    },
+    "footer": {
+      "company": "Company",
+      "product": "Product",
+      "resources": "Resources",
+      "community": "Community",
+      "legal": "Legal"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Supercharge your caching with ValKey",
+      "subtitle": "The open, high-performance Redis alternative",
+      "description": "ValKey is a modern key-value caching solution designed specifically for WordPress, offering superior performance and community-driven development."
+    },
+    "features": {
+      "title": "Why ValKey beats Redis",
+      "performance": {
+        "title": "Superior Performance",
+        "description": "Handle more requests with lower latency on the same hardware"
+      },
+      "openSource": {
+        "title": "Open Source & Community-Driven",
+        "description": "Backed by Linux Foundation and 40+ companies for active development"
+      },
+      "costEffective": {
+        "title": "Cost-Effective",
+        "description": "20-33% lower pricing than Redis engines on cloud providers"
+      }
+    }
+  }
+} 

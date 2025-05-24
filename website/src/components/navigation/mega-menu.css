@@ -1,0 +1,30 @@
+.mega-menu {
+  @apply bg-background border rounded-lg shadow-lg p-8 mt-2;
+  min-width: 800px;
+  transform: translateX(-50%);
+  left: 50%;
+  position: absolute;
+}
+
+.mega-menu-title {
+  @apply text-lg font-semibold mb-4;
+}
+
+.mega-menu-link {
+  @apply block py-2 hover:bg-accent/50 rounded-md px-3 transition-colors;
+}
+
+.mega-menu-column {
+  @apply p-4;
+}
+
+/* Mobile menu styles */
+@media (max-width: 1024px) {
+  .mega-menu {
+    @apply relative transform-none left-0 min-w-full shadow-none border-0 p-4;
+  }
+
+  .mega-menu-column {
+    @apply mb-6 last:mb-0;
+  }
+} 

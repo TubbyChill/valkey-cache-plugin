@@ -1,0 +1,87 @@
+// This is your Prisma schema file
+// Learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  name          String?
+  role          Role      @default(CUSTOMER)
+  oauthProvider String?
+  oauthId       String?
+  apiKeys       ApiKey[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  deletedAt     DateTime?
+
+  @@index([email])
+  @@index([oauthProvider, oauthId])
+}
+
+model ApiKey {
+  id        String    @id @default(uuid())
+  key       String    @unique
+  userId    String
+  user      User      @relation(fields: [userId], references: [id])
+  isActive  Boolean   @default(true)
+  lastUsed  DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  @@index([key])
+  @@index([userId])
+}
+
+model Page {
+  id            String         @id @default(uuid())
+  slug          String        @unique
+  translations  Translation[]
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  deletedAt     DateTime?
+
+  @@index([slug])
+}
+
+model Translation {
+  id        String    @id @default(uuid())
+  pageId    String
+  page      Page      @relation(fields: [pageId], references: [id])
+  locale    String
+  title     String
+  content   String    @db.Text
+  metaTitle String?
+  metaDesc  String?   @db.Text
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  @@unique([pageId, locale])
+  @@index([pageId])
+  @@index([locale])
+}
+
+model DeployLog {
+  id        String   @id @default(uuid())
+  version   String
+  commit    String?
+  message   String?
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+}
+
+enum Role {
+  ADMIN
+  CUSTOMER
+  GUEST
+} 

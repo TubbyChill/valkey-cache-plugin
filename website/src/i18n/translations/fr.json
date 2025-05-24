@@ -1,0 +1,45 @@
+{
+  "common": {
+    "navigation": {
+      "product": "Produit",
+      "pricing": "Tarifs",
+      "documentation": "Documentation",
+      "signIn": "Connexion",
+      "getStarted": "Commencer"
+    },
+    "cta": {
+      "tryPro": "Essayer ValKey Pro",
+      "startFreeTrial": "Démarrer l'essai gratuit",
+      "learnMore": "En savoir plus"
+    },
+    "footer": {
+      "company": "Entreprise",
+      "product": "Produit",
+      "resources": "Ressources",
+      "community": "Communauté",
+      "legal": "Mentions légales"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Optimisez votre mise en cache avec ValKey",
+      "subtitle": "L'alternative open source et performante à Redis",
+      "description": "ValKey est une solution moderne de mise en cache clé-valeur conçue spécifiquement pour WordPress, offrant des performances supérieures et un développement communautaire."
+    },
+    "features": {
+      "title": "Pourquoi ValKey surpasse Redis",
+      "performance": {
+        "title": "Performance Supérieure",
+        "description": "Gérez plus de requêtes avec une latence plus faible sur le même matériel"
+      },
+      "openSource": {
+        "title": "Open Source & Communautaire",
+        "description": "Soutenu par la Linux Foundation et plus de 40 entreprises pour un développement actif"
+      },
+      "costEffective": {
+        "title": "Économique",
+        "description": "Prix 20-33% inférieurs aux moteurs Redis chez les fournisseurs cloud"
+      }
+    }
+  }
+} 
