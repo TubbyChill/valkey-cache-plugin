@@ -52,6 +52,65 @@ test.describe('Navigation Tests', () => {
     });
   }
 
+  test('should have working navigation links in desktop view', async ({ page }) => {
+    await page.goto('http://localhost:3000/en');
+    await page.waitForLoadState('networkidle');
+    
+    for (const { path, text } of mainPages) {
+      if (path === '/') continue;
+      
+      const link = await page.getByRole('link', { name: text, exact: true }).first();
+      await expect(link).toBeVisible();
+      
+      await Promise.all([
+        page.waitForNavigation({ waitUntil: 'networkidle' }),
+        link.click()
+      ]);
+      
+      // Wait for URL to update and check it
+      await page.waitForURL(`**${path}`);
+      expect(page.url()).toContain(`/en${path}`);
+      
+      const mainContent = await page.locator('main').first();
+      await expect(mainContent).toBeVisible();
+      
+      await page.goto('http://localhost:3000/en');
+      await page.waitForLoadState('networkidle');
+    }
+  });
+
+  test('should have working navigation links in mobile view', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.goto('http://localhost:3000/en');
+    await page.waitForLoadState('networkidle');
+
+    const menuButton = await page.getByRole('button', { name: 'Toggle menu' });
+    await menuButton.click();
+    
+    for (const { path, text } of mainPages) {
+      if (path === '/') continue;
+      
+      const element = await page.getByRole('link', { name: text, exact: true }).first();
+      await expect(element).toBeVisible();
+      
+      await Promise.all([
+        page.waitForNavigation({ waitUntil: 'networkidle' }),
+        element.click()
+      ]);
+      
+      // Wait for URL to update and check it
+      await page.waitForURL(`**${path}`);
+      expect(page.url()).toContain(`/en${path}`);
+      
+      const mainContent = await page.locator('main').first();
+      await expect(mainContent).toBeVisible();
+      
+      await page.goto('http://localhost:3000/en');
+      await page.waitForLoadState('networkidle');
+      await menuButton.click();
+    }
+  });
+
   test('should have working Products dropdown menu in desktop view', async ({ page }) => {
     await page.goto('http://localhost:3000/en');
     await page.waitForLoadState('networkidle');
@@ -70,6 +129,8 @@ test.describe('Navigation Tests', () => {
         link.click()
       ]);
       
+      // Wait for URL to update and check it
+      await page.waitForURL(`**${path}`);
       expect(page.url()).toContain(`/en${path}`);
       
       // Go back and reopen dropdown
@@ -88,6 +149,8 @@ test.describe('Navigation Tests', () => {
         link.click()
       ]);
       
+      // Wait for URL to update and check it
+      await page.waitForURL(`**${path}`);
       expect(page.url()).toContain(`/en${path}`);
       
       // Go back and reopen dropdown
@@ -106,81 +169,14 @@ test.describe('Navigation Tests', () => {
         link.click()
       ]);
       
+      // Wait for URL to update and check it
+      await page.waitForURL(`**${path}`);
       expect(page.url()).toContain(`/en${path}`);
       
       // Go back and reopen dropdown
       await page.goto('http://localhost:3000/en');
       await page.waitForLoadState('networkidle');
       await productsButton.click();
-    }
-  });
-
-  test('should have working navigation links in desktop view', async ({ page }) => {
-    await page.goto('http://localhost:3000/en');
-    await page.waitForLoadState('networkidle');
-    
-    // Check if all navigation links are present and clickable
-    for (const { path, text } of mainPages) {
-      if (path === '/') continue; // Skip home page link
-      
-      // Find the link by its text content
-      const link = await page.getByRole('link', { name: text, exact: true }).first();
-      await expect(link).toBeVisible();
-      
-      // Click the link and wait for navigation
-      await Promise.all([
-        page.waitForNavigation({ waitUntil: 'networkidle' }),
-        link.click()
-      ]);
-      
-      // Check if URL changed correctly (including language prefix)
-      expect(page.url()).toContain(`/en${path}`);
-      
-      // Check if the page loaded without errors
-      const mainContent = await page.locator('main').first();
-      await expect(mainContent).toBeVisible();
-      
-      // Go back to home page for next test
-      await page.goto('http://localhost:3000/en');
-      await page.waitForLoadState('networkidle');
-    }
-  });
-
-  test('should have working navigation links in mobile view', async ({ page }) => {
-    // Set mobile viewport
-    await page.setViewportSize({ width: 375, height: 667 });
-    await page.goto('http://localhost:3000/en');
-    await page.waitForLoadState('networkidle');
-
-    // Open mobile menu
-    const menuButton = await page.getByRole('button', { name: 'Toggle menu' });
-    await menuButton.click();
-    
-    // Check if all navigation links are present and clickable
-    for (const { path, text } of mainPages) {
-      if (path === '/') continue; // Skip home page link
-      
-      // Find the link or button by its text content
-      const element = await page.getByRole('link', { name: text, exact: true }).first();
-      await expect(element).toBeVisible();
-      
-      // Click the element and wait for navigation
-      await Promise.all([
-        page.waitForNavigation({ waitUntil: 'networkidle' }),
-        element.click()
-      ]);
-      
-      // Check if URL changed correctly (including language prefix)
-      expect(page.url()).toContain(`/en${path}`);
-      
-      // Check if the page loaded without errors
-      const mainContent = await page.locator('main').first();
-      await expect(mainContent).toBeVisible();
-      
-      // Go back to home page and reopen menu for next test
-      await page.goto('http://localhost:3000/en');
-      await page.waitForLoadState('networkidle');
-      await menuButton.click();
     }
   });
 

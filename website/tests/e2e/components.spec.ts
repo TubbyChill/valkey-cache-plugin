@@ -17,8 +17,8 @@ test.describe('UI Components Tests', () => {
     // Submit form
     await page.getByRole('button', { name: 'Send Message' }).click();
 
-    // Check for success message in the DOM
-    await expect(page.getByText(/thank you|message sent|form submitted/i)).toBeVisible({ timeout: 10000 });
+    // Check for success toast
+    await expect(page.getByRole('status').or(page.getByText('Success'))).toBeVisible({ timeout: 10000 });
   });
 
   test('blog post interaction', async ({ page }) => {
@@ -44,11 +44,11 @@ test.describe('UI Components Tests', () => {
     await page.goto('http://localhost:3000/en/pricing');
 
     // Check pricing table structure
-    const pricingSection = page.getByRole('region', { name: /pricing/i }).or(page.locator('section:has-text("Pricing")'));
+    const pricingSection = page.getByRole('region', { name: 'Pricing Plans' });
     await expect(pricingSection).toBeVisible();
 
     // Check for pricing tiers
-    const pricingTiers = pricingSection.locator('[role="article"], .pricing-tier');
+    const pricingTiers = pricingSection.locator('.pricing-tier');
     const tierCount = await pricingTiers.count();
     expect(tierCount).toBeGreaterThan(0);
 
@@ -64,12 +64,16 @@ test.describe('UI Components Tests', () => {
     // Check search functionality
     const searchInput = page.getByPlaceholder(/search/i).or(page.getByRole('searchbox'));
     await expect(searchInput).toBeVisible({ timeout: 10000 });
-    await searchInput.fill('installation');
+    await searchInput.fill('configuration');
 
     // Wait for search results
     await page.waitForTimeout(1000); // Wait for debounce
-    const searchResults = page.getByRole('link').filter({ hasText: /installation/i });
+    const searchResults = page.getByRole('link', { name: /configuration/i }).first();
     await expect(searchResults).toBeVisible({ timeout: 10000 });
+
+    // Verify search result content
+    const resultText = await searchResults.textContent();
+    expect(resultText?.toLowerCase()).toContain('configuration');
   });
 
   test('accessibility checks', async ({ page }) => {
@@ -102,6 +106,7 @@ test.describe('UI Components Tests', () => {
 
     for (const path of pages) {
       await page.goto(`http://localhost:3000/en${path}`);
+      await page.waitForLoadState('networkidle');
 
       // Check meta title
       const title = await page.title();
@@ -114,7 +119,6 @@ test.describe('UI Components Tests', () => {
       expect(description?.length).toBeLessThan(160);
 
       // Check canonical URL
-      await page.waitForLoadState('networkidle');
       const canonical = await page.locator('link[rel="canonical"]').getAttribute('href');
       expect(canonical).toBeTruthy();
     }

@@ -17,7 +17,10 @@ interface PricingTierProps {
 
 function PricingTier({ name, price, description, features, cta, href, popular }: PricingTierProps) {
   return (
-    <div className={`p-8 rounded-lg border ${popular ? 'border-primary bg-primary/5' : 'bg-card'}`}>
+    <div 
+      role="article"
+      className={`pricing-tier p-8 rounded-lg border ${popular ? 'border-primary bg-primary/5' : 'bg-card'}`}
+    >
       <h3 className="text-2xl font-semibold mb-2">{name}</h3>
       <div className="mb-4">
         <span className="text-4xl font-bold">{price}</span>
@@ -102,7 +105,11 @@ export default function PricingPage() {
       </section>
 
       {/* Pricing Tiers */}
-      <section className="py-12 px-4 md:px-6 lg:px-8">
+      <section 
+        className="py-12 px-4 md:px-6 lg:px-8"
+        role="region"
+        aria-label="Pricing Plans"
+      >
         <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {tiers.map((tier) => (
             <PricingTier key={tier.name} {...tier} />
@@ -111,19 +118,23 @@ export default function PricingPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 px-4 md:px-6 lg:px-8 bg-muted/50">
+      <section 
+        className="py-20 px-4 md:px-6 lg:px-8 bg-muted/50"
+        role="region"
+        aria-label="Frequently Asked Questions"
+      >
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
           <div className="space-y-8">
-            <div>
+            <div role="article">
               <h3 className="text-xl font-semibold mb-2">Can I switch plans later?</h3>
               <p className="text-muted-foreground">Yes, you can upgrade or downgrade your plan at any time. Changes will be reflected in your next billing cycle.</p>
             </div>
-            <div>
+            <div role="article">
               <h3 className="text-xl font-semibold mb-2">Do you offer refunds?</h3>
               <p className="text-muted-foreground">Yes, we offer a 30-day money-back guarantee on all paid plans.</p>
             </div>
-            <div>
+            <div role="article">
               <h3 className="text-xl font-semibold mb-2">What payment methods do you accept?</h3>
               <p className="text-muted-foreground">We accept all major credit cards, PayPal, and bank transfers for Enterprise plans.</p>
             </div>

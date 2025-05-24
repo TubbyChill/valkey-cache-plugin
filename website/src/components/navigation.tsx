@@ -25,15 +25,23 @@ export function Navigation({ lang }: NavigationProps) {
   const [isLoginOpen, setIsLoginOpen] = React.useState(false)
 
   const handleNavigation = (href: string) => {
-    // Remove any double slashes and ensure proper path format
-    const cleanPath = href.replace(/\/+/g, '/').replace(/\/$/, '')
-    router.push(cleanPath)
+    // Ensure href starts with language prefix
+    const path = href.startsWith('/') ? href : `/${href}`
+    const langPath = path.startsWith(`/${lang}`) ? path : `/${lang}${path}`
+    router.push(langPath)
   }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
-        <Link href={`/${lang}`} className="flex items-center space-x-2">
+        <Link 
+          href={`/${lang}`} 
+          className="flex items-center space-x-2"
+          onClick={(e) => {
+            e.preventDefault()
+            handleNavigation('/')
+          }}
+        >
           <span className="text-xl font-bold">ValKey</span>
         </Link>
         
@@ -51,7 +59,7 @@ export function Navigation({ lang }: NavigationProps) {
                     className="mega-menu-link"
                     onClick={(e) => {
                       e.preventDefault()
-                      handleNavigation(`/${lang}/features/performance`)
+                      handleNavigation('/features/performance')
                     }}
                   >
                     Performance
@@ -61,7 +69,7 @@ export function Navigation({ lang }: NavigationProps) {
                     className="mega-menu-link"
                     onClick={(e) => {
                       e.preventDefault()
-                      handleNavigation(`/${lang}/features/efficiency`)
+                      handleNavigation('/features/efficiency')
                     }}
                   >
                     Memory Efficiency
@@ -71,7 +79,7 @@ export function Navigation({ lang }: NavigationProps) {
                     className="mega-menu-link"
                     onClick={(e) => {
                       e.preventDefault()
-                      handleNavigation(`/${lang}/features/community`)
+                      handleNavigation('/features/community')
                     }}
                   >
                     Community Support
@@ -84,7 +92,7 @@ export function Navigation({ lang }: NavigationProps) {
                     className="mega-menu-link"
                     onClick={(e) => {
                       e.preventDefault()
-                      handleNavigation(`/${lang}/solutions/wordpress`)
+                      handleNavigation('/solutions/wordpress')
                     }}
                   >
                     WordPress Plugin
@@ -94,7 +102,7 @@ export function Navigation({ lang }: NavigationProps) {
                     className="mega-menu-link"
                     onClick={(e) => {
                       e.preventDefault()
-                      handleNavigation(`/${lang}/solutions/enterprise`)
+                      handleNavigation('/solutions/enterprise')
                     }}
                   >
                     Enterprise
@@ -104,7 +112,7 @@ export function Navigation({ lang }: NavigationProps) {
                     className="mega-menu-link"
                     onClick={(e) => {
                       e.preventDefault()
-                      handleNavigation(`/${lang}/solutions/cloud`)
+                      handleNavigation('/solutions/cloud')
                     }}
                   >
                     Cloud Hosting
@@ -117,7 +125,7 @@ export function Navigation({ lang }: NavigationProps) {
                     className="mega-menu-link"
                     onClick={(e) => {
                       e.preventDefault()
-                      handleNavigation(`/${lang}/docs`)
+                      handleNavigation('/docs')
                     }}
                   >
                     Documentation
@@ -127,7 +135,7 @@ export function Navigation({ lang }: NavigationProps) {
                     className="mega-menu-link"
                     onClick={(e) => {
                       e.preventDefault()
-                      handleNavigation(`/${lang}/blog`)
+                      handleNavigation('/blog')
                     }}
                   >
                     Blog
@@ -137,7 +145,7 @@ export function Navigation({ lang }: NavigationProps) {
                     className="mega-menu-link"
                     onClick={(e) => {
                       e.preventDefault()
-                      handleNavigation(`/${lang}/support`)
+                      handleNavigation('/support')
                     }}
                   >
                     Support
@@ -153,7 +161,7 @@ export function Navigation({ lang }: NavigationProps) {
                       href={`/${lang}/pro`}
                       onClick={(e) => {
                         e.preventDefault()
-                        handleNavigation(`/${lang}/pro`)
+                        handleNavigation('/pro')
                       }}
                     >
                       <Button className="mt-4" size="sm">
@@ -170,7 +178,7 @@ export function Navigation({ lang }: NavigationProps) {
               className="text-muted-foreground hover:text-foreground"
               onClick={(e) => {
                 e.preventDefault()
-                handleNavigation(`/${lang}/pricing`)
+                handleNavigation('/pricing')
               }}
             >
               Pricing
@@ -181,7 +189,7 @@ export function Navigation({ lang }: NavigationProps) {
               className="text-muted-foreground hover:text-foreground"
               onClick={(e) => {
                 e.preventDefault()
-                handleNavigation(`/${lang}/docs`)
+                handleNavigation('/docs')
               }}
             >
               Documentation
@@ -202,7 +210,7 @@ export function Navigation({ lang }: NavigationProps) {
               href={`/${lang}/signup`}
               onClick={(e) => {
                 e.preventDefault()
-                handleNavigation(`/${lang}/signup`)
+                handleNavigation('/signup')
               }}
             >
               <Button>Get Started</Button>

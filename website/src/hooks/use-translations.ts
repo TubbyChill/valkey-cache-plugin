@@ -1,7 +1,7 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { defaultLocale } from '@/i18n/config'
+import { FALLBACK_LOCALE } from '@/i18n/config'
 
 // Import all translations
 const translations = {
@@ -20,14 +20,14 @@ function getNestedValue(obj: Record<string, any>, path: string): string | undefi
 
 export function useTranslations() {
   const pathname = usePathname()
-  const locale = pathname.split('/')[1] || defaultLocale
+  const locale = pathname.split('/')[1] || FALLBACK_LOCALE
 
   const t = async (key: TranslationKey): Promise<string> => {
     try {
       const loadTranslation = translations[locale as keyof typeof translations]
       if (!loadTranslation) {
         // Fallback to default locale if translation not available
-        const defaultTranslations = await translations[defaultLocale]()
+        const defaultTranslations = await translations[FALLBACK_LOCALE]()
         const value = getNestedValue(defaultTranslations, key)
         return value || key
       }

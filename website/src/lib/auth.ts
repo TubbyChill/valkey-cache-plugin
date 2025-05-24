@@ -1,6 +1,12 @@
-import { NextAuthOptions } from 'next-auth'
+import { NextAuthOptions, Session, DefaultSession, Account, JWT } from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 import GitHubProvider from 'next-auth/providers/github'
+
+interface ExtendedSession extends Session {
+  user: {
+    id?: string
+  } & DefaultSession['user']
+}
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -19,13 +25,14 @@ export const authOptions: NextAuthOptions = {
     error: '/error',
   },
   callbacks: {
-    async session({ session, token }) {
-      if (session?.user) {
-        session.user.id = token.sub
+    async session({ session, token }: { session: Session; token: JWT }): Promise<ExtendedSession> {
+      const extendedSession = session as ExtendedSession
+      if (extendedSession?.user) {
+        extendedSession.user.id = token.sub
       }
-      return session
+      return extendedSession
     },
-    async jwt({ token, account }) {
+    async jwt({ token, account }: { token: JWT; account: Account | null }) {
       if (account) {
         token.accessToken = account.access_token
       }
