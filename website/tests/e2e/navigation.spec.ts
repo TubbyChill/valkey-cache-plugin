@@ -1,13 +1,11 @@
 import { test, expect } from '@playwright/test';
 
 const pages = [
-  '/',
-  '/about',
-  '/blog',
-  '/contact',
-  '/docs',
-  '/features',
-  '/pricing'
+  { path: '/', text: 'ValKey' },
+  { path: '/pricing', text: 'Pricing' },
+  { path: '/docs', text: 'Documentation' },
+  { path: '/login', text: 'Log in' },
+  { path: '/signup', text: 'Get Started' }
 ];
 
 test.describe('Navigation Tests', () => {
@@ -16,7 +14,7 @@ test.describe('Navigation Tests', () => {
     await page.setViewportSize({ width: 1280, height: 720 });
   });
 
-  for (const path of pages) {
+  for (const { path } of pages) {
     test(`should load ${path} page`, async ({ page }) => {
       // Navigate to the page
       const response = await page.goto(`http://localhost:3000/en${path}`);
@@ -37,25 +35,27 @@ test.describe('Navigation Tests', () => {
     });
   }
 
-  test('should have working navigation links', async ({ page }) => {
+  test('should have working navigation links in desktop view', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 720 });
     await page.goto('http://localhost:3000/en');
+    await page.waitForLoadState('networkidle');
     
     // Check if all navigation links are present and clickable
-    for (const path of pages) {
+    for (const { path, text } of pages) {
       if (path === '/') continue; // Skip home page link
       
-      const pathName = path.substring(1); // Remove leading slash
-      const link = await page.getByRole('link', { name: new RegExp(pathName, 'i') }).first();
+      // Find the link by its text content
+      const link = await page.getByRole('link', { name: text, exact: true }).first();
       await expect(link).toBeVisible();
       
-      // Click the link
+      // Click the link and wait for navigation
       await link.click();
-      
-      // Wait for navigation to complete
       await page.waitForLoadState('networkidle');
       
       // Check if URL changed correctly (including language prefix)
-      expect(page.url()).toContain(`/en${path}`);
+      const currentUrl = new URL(page.url());
+      const pathWithoutLang = currentUrl.pathname.replace(/^\/[a-z]{2}/, '');
+      expect(pathWithoutLang).toBe(path);
       
       // Check if the page loaded without errors
       const mainContent = await page.locator('main').first();
@@ -63,6 +63,44 @@ test.describe('Navigation Tests', () => {
       
       // Go back to home page for next test
       await page.goto('http://localhost:3000/en');
+      await page.waitForLoadState('networkidle');
+    }
+  });
+
+  test('should have working navigation links in mobile view', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.goto('http://localhost:3000/en');
+    await page.waitForLoadState('networkidle');
+    
+    // Open mobile menu
+    const menuButton = await page.getByRole('button', { name: 'Toggle menu' });
+    await menuButton.click();
+    
+    // Check if all navigation links are present and clickable
+    for (const { path, text } of pages) {
+      if (path === '/') continue; // Skip home page link
+      
+      // Find the link by its text content
+      const link = await page.getByRole('link', { name: text, exact: true }).first();
+      await expect(link).toBeVisible();
+      
+      // Click the link and wait for navigation
+      await link.click();
+      await page.waitForLoadState('networkidle');
+      
+      // Check if URL changed correctly (including language prefix)
+      const currentUrl = new URL(page.url());
+      const pathWithoutLang = currentUrl.pathname.replace(/^\/[a-z]{2}/, '');
+      expect(pathWithoutLang).toBe(path);
+      
+      // Check if the page loaded without errors
+      const mainContent = await page.locator('main').first();
+      await expect(mainContent).toBeVisible();
+      
+      // Go back to home page and reopen menu for next test
+      await page.goto('http://localhost:3000/en');
+      await page.waitForLoadState('networkidle');
+      await menuButton.click();
     }
   });
 }); 

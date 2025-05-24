@@ -92,7 +92,7 @@ export default function PricingPage() {
   ]
 
   return (
-    <div className="min-h-screen">
+    <main className="min-h-screen">
       {/* Hero Section */}
       <section className="py-20 px-4 md:px-6 lg:px-8 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">Simple, Transparent Pricing</h1>
@@ -130,6 +130,6 @@ export default function PricingPage() {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   )
 } 

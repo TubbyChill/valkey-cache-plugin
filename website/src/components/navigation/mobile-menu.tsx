@@ -30,13 +30,6 @@ export function MobileMenu({ lang }: MobileMenuProps) {
           <nav className="container py-8">
             <div className="flex flex-col space-y-4">
               <Link
-                href={`/${lang}/features`}
-                className="text-lg font-medium hover:text-primary"
-                onClick={() => setIsOpen(false)}
-              >
-                Features
-              </Link>
-              <Link
                 href={`/${lang}/pricing`}
                 className="text-lg font-medium hover:text-primary"
                 onClick={() => setIsOpen(false)}
@@ -49,20 +42,6 @@ export function MobileMenu({ lang }: MobileMenuProps) {
                 onClick={() => setIsOpen(false)}
               >
                 Documentation
-              </Link>
-              <Link
-                href={`/${lang}/blog`}
-                className="text-lg font-medium hover:text-primary"
-                onClick={() => setIsOpen(false)}
-              >
-                Blog
-              </Link>
-              <Link
-                href={`/${lang}/support`}
-                className="text-lg font-medium hover:text-primary"
-                onClick={() => setIsOpen(false)}
-              >
-                Support
               </Link>
             </div>
 
