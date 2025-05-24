@@ -3,6 +3,7 @@ import { Metadata } from 'next'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
 import { ThemeProvider } from '@/components/theme-provider'
+import { SessionProvider } from '@/components/session-provider'
 import { i18n } from '@/i18n/config'
 import type { SupportedLanguage } from '@/i18n/use-translations'
 
@@ -28,13 +29,15 @@ export default function RootLayout({ children, params }: RootLayoutProps) {
   return (
     <html lang={params.lang} suppressHydrationWarning>
       <body>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="relative min-h-screen">
-            <Navigation lang={params.lang} />
-            <div className="flex-1">{children}</div>
-            <Footer lang={params.lang} />
-          </div>
-        </ThemeProvider>
+        <SessionProvider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <div className="relative min-h-screen">
+              <Navigation lang={params.lang} />
+              <div className="flex-1">{children}</div>
+              <Footer lang={params.lang} />
+            </div>
+          </ThemeProvider>
+        </SessionProvider>
       </body>
     </html>
   )

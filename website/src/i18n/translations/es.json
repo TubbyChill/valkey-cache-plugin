@@ -6,14 +6,15 @@
     "memoryEfficiency": "Eficiencia de Memoria",
     "solutions": "Soluciones",
     "wordpressPlugin": "Plugin WordPress",
-    "enterprise": "Empresa",
-    "cloudHosting": "Alojamiento en la Nube",
+    "enterprise": "Empresas",
+    "cloudHosting": "Alojamiento Cloud",
     "resources": "Recursos",
     "documentation": "Documentación",
     "blog": "Blog",
     "support": "Soporte",
     "pricing": "Precios",
     "login": "Iniciar Sesión",
+    "signup": "Registrarse",
     "getStarted": "Comenzar",
     "toggleMenu": "Menú",
     "search": "Buscar...",
@@ -25,8 +26,8 @@
   },
   "home": {
     "hero": {
-      "title": "Alternativa Moderna a Redis para WordPress",
-      "description": "Solución de caché de alto rendimiento diseñada específicamente para WordPress. Código abierto y respaldado por la Linux Foundation."
+      "title": "Potencia tu Cache WordPress",
+      "description": "ValKey Cache Plugin optimiza el rendimiento de tu sitio WordPress con caché inteligente y análisis en tiempo real."
     }
   },
   "features": {

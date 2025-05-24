@@ -23,8 +23,8 @@
   },
   "home": {
     "hero": {
-      "title": "Modern Redis Alternative for WordPress",
-      "description": "High-performance caching solution designed specifically for WordPress. Open-source and backed by the Linux Foundation."
+      "title": "Supercharge Your WordPress Cache",
+      "description": "ValKey Cache Plugin optimizes your WordPress site's performance with intelligent caching and real-time analytics."
     },
     "features": {
       "title": "Why ValKey beats Redis",
@@ -57,6 +57,7 @@
     "support": "Support",
     "pricing": "Pricing",
     "login": "Login",
+    "signup": "Sign Up",
     "getStarted": "Get Started",
     "toggleMenu": "Toggle Menu",
     "search": "Search...",

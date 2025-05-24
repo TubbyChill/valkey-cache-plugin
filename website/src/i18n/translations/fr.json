@@ -11,7 +11,7 @@
       "tryPro": "Essayer ValKey Pro",
       "startFreeTrial": "Démarrer l'essai gratuit",
       "getStarted": "Commencer",
-      "learnMore": "En savoir plus"
+      "learnMore": "En Savoir Plus"
     },
     "footer": {
       "company": "Entreprise",
@@ -23,8 +23,8 @@
   },
   "home": {
     "hero": {
-      "title": "Alternative Moderne à Redis pour WordPress",
-      "description": "Solution de mise en cache haute performance conçue spécifiquement pour WordPress. Open-source et soutenue par la Linux Foundation."
+      "title": "Optimisez Votre Cache WordPress",
+      "description": "ValKey Cache Plugin optimise les performances de votre site WordPress avec une mise en cache intelligente et des analyses en temps réel."
     },
     "features": {
       "title": "Pourquoi ValKey surpasse Redis",
@@ -48,7 +48,7 @@
     "performance": "Performance",
     "memoryEfficiency": "Efficacité Mémoire",
     "solutions": "Solutions",
-    "wordpressPlugin": "Plugin WordPress",
+    "wordpressPlugin": "Extension WordPress",
     "enterprise": "Entreprise",
     "cloudHosting": "Hébergement Cloud",
     "resources": "Ressources",
@@ -57,6 +57,7 @@
     "support": "Support",
     "pricing": "Tarifs",
     "login": "Connexion",
+    "signup": "Inscription",
     "getStarted": "Commencer",
     "toggleMenu": "Menu",
     "search": "Rechercher...",
