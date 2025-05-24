@@ -6,15 +6,48 @@ A modern website for the ValKey Cache Plugin, built with Next.js, Express, and M
 
 ```
 valkey-cache-plugin/
-├── app/                    # Backend (Express + Prisma)
-│   ├── prisma/            # Database schema and migrations
-│   └── src/               # Source code
-│       ├── data/          # Data layer (repositories)
-│       ├── domain/        # Domain layer (entities, interfaces)
-│       └── presentation/  # API routes and controllers
-├── website/               # Frontend (Next.js)
-│   └── src/              # Source code
-└── deploy.sh             # Deployment script
+├── app/                      # Backend (Express + Prisma)
+│   ├── prisma/              # Database schema and migrations
+│   └── src/                 # Source code
+│       ├── data/            # Data layer
+│       │   └── repositories/# Data repositories
+│       ├── domain/          # Domain layer
+│       │   ├── entities/    # Domain entities
+│       │   ├── repositories/# Repository interfaces
+│       │   └── usecases/    # Business logic
+│       │       ├── auth/    # Authentication use cases
+│       │       └── page/    # Page-related use cases
+│       └── presentation/    # Presentation layer
+│           └── api/         # API endpoints
+│               └── routes/  # Route handlers
+├── website/                 # Frontend (Next.js)
+│   ├── src/                # Source code
+│   │   ├── app/           # Next.js app directory
+│   │   │   └── [lang]/    # Language-specific routes
+│   │   │       ├── about/ # About page
+│   │   │       ├── blog/  # Blog pages
+│   │   │       ├── docs/  # Documentation
+│   │   │       ├── login/ # Authentication
+│   │   │       ├── map/   # Site map
+│   │   │       ├── pricing/# Pricing page
+│   │   │       └── signup/# Registration
+│   │   ├── components/    # React components
+│   │   │   ├── layout/   # Layout components
+│   │   │   ├── navigation/# Navigation components
+│   │   │   ├── pages/    # Page components
+│   │   │   └── ui/       # UI components
+│   │   ├── hooks/        # Custom React hooks
+│   │   ├── i18n/         # Internationalization
+│   │   │   └── translations/ # Translation files
+│   │   └── lib/          # Utility functions
+│   └── tests/            # Test files
+│       └── e2e/         # End-to-end tests
+├── .gitignore           # Git ignore file
+├── deploy.sh            # Deployment script
+├── package.json         # Project dependencies
+├── PROJECT_STATUS.md    # Project status tracking
+├── README.md           # Project documentation
+└── spec.md             # Technical specifications
 ```
 
 ## Prerequisites

@@ -2,9 +2,10 @@
 
 import * as React from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { Button } from '@/components/ui/button'
+import { LoginModal } from '@/components/auth/login-modal'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,7 +20,15 @@ interface NavigationProps {
 
 export function Navigation({ lang }: NavigationProps) {
   const pathname = usePathname()
+  const router = useRouter()
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
+  const [isLoginOpen, setIsLoginOpen] = React.useState(false)
+
+  const handleNavigation = (href: string) => {
+    // Remove any double slashes and ensure proper path format
+    const cleanPath = href.replace(/\/+/g, '/').replace(/\/$/, '')
+    router.push(cleanPath)
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -37,37 +46,100 @@ export function Navigation({ lang }: NavigationProps) {
               <DropdownMenuContent className="mega-menu">
                 <div className="mega-menu-column">
                   <h3 className="mega-menu-title">Core Features</h3>
-                  <Link href={`/${lang}/features/performance`} className="mega-menu-link">
+                  <Link 
+                    href={`/${lang}/features/performance`} 
+                    className="mega-menu-link"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      handleNavigation(`/${lang}/features/performance`)
+                    }}
+                  >
                     Performance
                   </Link>
-                  <Link href={`/${lang}/features/efficiency`} className="mega-menu-link">
+                  <Link 
+                    href={`/${lang}/features/efficiency`} 
+                    className="mega-menu-link"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      handleNavigation(`/${lang}/features/efficiency`)
+                    }}
+                  >
                     Memory Efficiency
                   </Link>
-                  <Link href={`/${lang}/features/community`} className="mega-menu-link">
+                  <Link 
+                    href={`/${lang}/features/community`} 
+                    className="mega-menu-link"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      handleNavigation(`/${lang}/features/community`)
+                    }}
+                  >
                     Community Support
                   </Link>
                 </div>
                 <div className="mega-menu-column">
                   <h3 className="mega-menu-title">Solutions</h3>
-                  <Link href={`/${lang}/solutions/wordpress`} className="mega-menu-link">
+                  <Link 
+                    href={`/${lang}/solutions/wordpress`} 
+                    className="mega-menu-link"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      handleNavigation(`/${lang}/solutions/wordpress`)
+                    }}
+                  >
                     WordPress Plugin
                   </Link>
-                  <Link href={`/${lang}/solutions/enterprise`} className="mega-menu-link">
+                  <Link 
+                    href={`/${lang}/solutions/enterprise`} 
+                    className="mega-menu-link"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      handleNavigation(`/${lang}/solutions/enterprise`)
+                    }}
+                  >
                     Enterprise
                   </Link>
-                  <Link href={`/${lang}/solutions/cloud`} className="mega-menu-link">
+                  <Link 
+                    href={`/${lang}/solutions/cloud`} 
+                    className="mega-menu-link"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      handleNavigation(`/${lang}/solutions/cloud`)
+                    }}
+                  >
                     Cloud Hosting
                   </Link>
                 </div>
                 <div className="mega-menu-column">
                   <h3 className="mega-menu-title">Resources</h3>
-                  <Link href={`/${lang}/docs`} className="mega-menu-link">
+                  <Link 
+                    href={`/${lang}/docs`} 
+                    className="mega-menu-link"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      handleNavigation(`/${lang}/docs`)
+                    }}
+                  >
                     Documentation
                   </Link>
-                  <Link href={`/${lang}/blog`} className="mega-menu-link">
+                  <Link 
+                    href={`/${lang}/blog`} 
+                    className="mega-menu-link"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      handleNavigation(`/${lang}/blog`)
+                    }}
+                  >
                     Blog
                   </Link>
-                  <Link href={`/${lang}/support`} className="mega-menu-link">
+                  <Link 
+                    href={`/${lang}/support`} 
+                    className="mega-menu-link"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      handleNavigation(`/${lang}/support`)
+                    }}
+                  >
                     Support
                   </Link>
                 </div>
@@ -77,7 +149,13 @@ export function Navigation({ lang }: NavigationProps) {
                     <p className="mt-1 text-sm text-muted-foreground">
                       Get started with advanced features and priority support.
                     </p>
-                    <Link href={`/${lang}/pro`}>
+                    <Link 
+                      href={`/${lang}/pro`}
+                      onClick={(e) => {
+                        e.preventDefault()
+                        handleNavigation(`/${lang}/pro`)
+                      }}
+                    >
                       <Button className="mt-4" size="sm">
                         Start Free Trial
                       </Button>
@@ -87,21 +165,46 @@ export function Navigation({ lang }: NavigationProps) {
               </DropdownMenuContent>
             </DropdownMenu>
             
-            <Link href={`/${lang}/pricing`} className="text-muted-foreground hover:text-foreground">
+            <Link 
+              href={`/${lang}/pricing`} 
+              className="text-muted-foreground hover:text-foreground"
+              onClick={(e) => {
+                e.preventDefault()
+                handleNavigation(`/${lang}/pricing`)
+              }}
+            >
               Pricing
             </Link>
             
-            <Link href={`/${lang}/docs`} className="text-muted-foreground hover:text-foreground">
+            <Link 
+              href={`/${lang}/docs`} 
+              className="text-muted-foreground hover:text-foreground"
+              onClick={(e) => {
+                e.preventDefault()
+                handleNavigation(`/${lang}/docs`)
+              }}
+            >
               Documentation
             </Link>
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
             <ThemeToggle />
-            <Link href={`/${lang}/login`}>
-              <Button variant="ghost">Log in</Button>
-            </Link>
-            <Link href={`/${lang}/signup`}>
+            <LoginModal
+              lang={lang}
+              isOpen={isLoginOpen}
+              onOpenChange={setIsLoginOpen}
+              trigger={
+                <Button variant="ghost">Log in</Button>
+              }
+            />
+            <Link 
+              href={`/${lang}/signup`}
+              onClick={(e) => {
+                e.preventDefault()
+                handleNavigation(`/${lang}/signup`)
+              }}
+            >
               <Button>Get Started</Button>
             </Link>
           </div>
