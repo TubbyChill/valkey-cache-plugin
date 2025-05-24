@@ -5,6 +5,11 @@ node_modules/
 
 # Testing
 coverage/
+test-results/
+playwright-report/
+allure-results/
+allure-report/
+.last-run.json
 
 # Next.js
 .next/

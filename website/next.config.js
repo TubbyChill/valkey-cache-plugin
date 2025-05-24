@@ -1,25 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  i18n: {
-    locales: ['en', 'fr', 'es', 'de', 'it', 'pt', 'nl', 'pl', 'ru', 'ja'],
-    defaultLocale: 'en',
-    localeDetection: true,
+  env: {
+    API_URL: process.env.NODE_ENV === 'production' 
+      ? 'https://api.valkey-cache-plugin.com' 
+      : 'http://localhost:4000'
   },
-  images: {
-    domains: [
-      'github.com',
-      'avatars.githubusercontent.com',
-      'lh3.googleusercontent.com'
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: process.env.NODE_ENV === 'production'
+          ? 'https://api.valkey-cache-plugin.com/api/:path*'
+          : 'http://localhost:4000/api/:path*'
+      }
     ]
-  },
-  // Enable SWC minification
-  swcMinify: true,
-  // Disable x-powered-by header
-  poweredByHeader: false,
-  // Enable strict mode for better error catching
-  typescript: {
-    strict: true
   }
 }
 

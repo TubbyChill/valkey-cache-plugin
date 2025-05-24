@@ -1,27 +1,12 @@
-import * as React from 'react'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
-import { ThemeProvider } from '@/components/theme-provider'
-import { MegaMenu } from '@/components/navigation/mega-menu'
+import { Inter } from 'next/font/google'
+import { Metadata } from 'next'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'ValKey Cache Plugin - Modern Redis Alternative for WordPress',
-  description: 'High-performance Redis alternative designed specifically for WordPress. Open-source and backed by the Linux Foundation.',
-  openGraph: {
-    title: 'ValKey Cache Plugin - Modern Redis Alternative for WordPress',
-    description: 'High-performance Redis alternative designed specifically for WordPress. Open-source and backed by the Linux Foundation.',
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://valkey-cache-plugin.com',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'ValKey Cache Plugin - Modern Redis Alternative for WordPress',
-    description: 'High-performance Redis alternative designed specifically for WordPress. Open-source and backed by the Linux Foundation.',
-  },
+  title: 'ValKey Cache Plugin',
+  description: 'A modern Redis alternative for WordPress',
 }
 
 export default function RootLayout({
@@ -30,18 +15,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <MegaMenu />
-          <main>{children}</main>
-        </ThemeProvider>
-      </body>
+    <html lang="en">
+      <body className={inter.className}>{children}</body>
     </html>
   )
 } 
